@@ -36,11 +36,6 @@ public class SignIn extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
 
     @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());

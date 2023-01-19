@@ -2,6 +2,7 @@ package com.example.android.whatsapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
@@ -48,12 +50,17 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.ViewHolder>
         holder.userName.setText(user.getUserName());
 
         FirebaseDatabase.getInstance().getReference().child("Chats").child(FirebaseAuth.getInstance().
-                getUid() + user.getUserId()).orderByChild("timestamp").limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+                getUid() + user.getUserId()).orderByChild("timestamp").limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            Calendar calendar = Calendar.getInstance();
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChildren()){
                     for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
                         holder.lastMessage.setText(dataSnapshot1.child("message").getValue().toString());
+                        calendar.setTimeInMillis(Long.parseLong(dataSnapshot1.child("timestamp").getValue().toString()));
+                        String date = DateFormat.format("hh:mm", calendar).toString();
+                        holder.lastime.setText(date);
                     }
                 }
             }
@@ -84,13 +91,14 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView userName, lastMessage;
+        TextView userName, lastMessage,lastime;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             image = itemView.findViewById(R.id.profile_image);
             userName = itemView.findViewById(R.id.userNameList);
             lastMessage = itemView.findViewById(R.id.lastMessage);
+            lastime = itemView.findViewById(R.id.lasttime);
         }
     }
 }

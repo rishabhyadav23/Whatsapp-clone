@@ -2,9 +2,9 @@ package com.example.android.whatsapp.Models;
 
 public class User {
 
-    String profilePic,userName,mail,password,userId,lastMessage,status;
+    String profilePic,userName,mail,password,userId,lastMessage,status,lastime;
 
-    public User(String profilePic, String userName, String mail, String password, String userId, String lastMessage, String status) {
+    public User(String profilePic, String userName, String mail, String password, String userId, String lastMessage, String status, String lastime) {
         this.profilePic = profilePic;
         this.userName = userName;
         this.mail = mail;
@@ -12,6 +12,7 @@ public class User {
         this.userId = userId;
         this.lastMessage = lastMessage;
         this.status = status;
+        this.lastime = lastime;
     }
 
     public String getUserId() {
@@ -38,6 +39,14 @@ public class User {
         this.userName = userName;
         this.mail = mail;
         this.password = password;
+    }
+
+    public String getLastime() {
+        return lastime;
+    }
+
+    public void setLastime(String lastime) {
+        this.lastime = lastime;
     }
 
     public String getProfilePic() {

@@ -51,4 +51,5 @@ dependencies {
 
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:3.0.0'
 }
