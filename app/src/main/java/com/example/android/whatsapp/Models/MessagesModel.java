@@ -1,7 +1,7 @@
 package com.example.android.whatsapp.Models;
 
 public class MessagesModel {
-    String Uid,message;
+    String Uid,message,mesaageId;
     Long timestamp;
 
     public MessagesModel(String Uid, String message, Long timestamp) {
@@ -13,6 +13,11 @@ public class MessagesModel {
         this.Uid = Uid;
         this.message = message;
     }
+
+    public MessagesModel(String mesaageId) {
+        this.mesaageId = mesaageId;
+    }
+
     public MessagesModel(){}
 
     public String getUid() {
@@ -37,5 +42,13 @@ public class MessagesModel {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getMesaageId() {
+        return mesaageId;
+    }
+
+    public void setMesaageId(String mesaageId) {
+        this.mesaageId = mesaageId;
     }
 }

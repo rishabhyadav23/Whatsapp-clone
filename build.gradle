@@ -3,6 +3,9 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.0'
 
     }
+    repositories{
+        mavenCentral()
+    }
 }
 plugins {
     id 'com.android.application' version '7.3.0' apply false

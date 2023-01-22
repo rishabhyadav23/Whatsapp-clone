@@ -101,4 +101,5 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.ViewHolder>
             lastime = itemView.findViewById(R.id.lasttime);
         }
     }
+
 }

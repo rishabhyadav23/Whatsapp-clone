@@ -24,7 +24,8 @@
             android:layout_height="100dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            app:tint="@color/primery_color_dark"/>
 
         <EditText
             android:id="@+id/email_signin"
@@ -95,14 +96,14 @@
                 android:text="Facebook" />
         </LinearLayout>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textView2_signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="3dp"
             android:text="SignUp with Phone"
-            android:textColor="@color/primery_color" />
+            android:textColor="@color/primery_color" />-->
 
     </LinearLayout>
 
